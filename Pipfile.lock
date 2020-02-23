@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "af558acf19469b2f520705aff94df370a522be936b5e565d79dfc880dcbc4ac7"
+            "sha256": "e70676d9eff077c63ecfa8936cbd579cb3e2298040d4e68961ab74c8354e1340"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -38,6 +38,14 @@
             ],
             "index": "pypi",
             "version": "==3.0.3"
+        },
+        "django-heroku": {
+            "hashes": [
+                "sha256:2bc690aab89eedbe01311752320a9a12e7548e3b0ed102681acc5736a41a4762",
+                "sha256:6af4bc3ae4a9b55eaad6dbe5164918982d2762661aebc9f83d9fa49f6009514e"
+            ],
+            "index": "pypi",
+            "version": "==0.3.1"
         },
         "django-smtp-ssl": {
             "hashes": [
@@ -100,6 +108,14 @@
             ],
             "index": "pypi",
             "version": "==2.8.4"
+        },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:8429f459fc041237d98c9ff32e1938e7e5535b5ff24388876315a098027c3a57",
+                "sha256:ca9f3debf2262170d6f46571ce4d6ca1add60bb93b69c3a29dcb3d1a00a65c93"
+            ],
+            "index": "pypi",
+            "version": "==0.11.0"
         },
         "pytz": {
             "hashes": [
