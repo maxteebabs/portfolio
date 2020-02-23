@@ -25,7 +25,7 @@ SECRET_KEY = 'o4vr38&^7f(3l($*d+++myu15^o_!-6kck1q)3!94c*u15c($o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://maxtee-portfolio.herokuapp.com/"]
 
 
 # Application definition
