@@ -1,0 +1,11 @@
+<div><a href="{{ project.get_absolute_url  }}">{{project.title}}</a></div>
+<img src="{{project.image.url}}" height="200" />
+<h1>Hello, world!</h1>
+
+<img src="{% static 'profilepix.jpeg' %}" height="300" />
+<p>My Projects</p>
+{% for project in projects.all %}
+<div><a href="{{ project.get_absolute_url  }}">{{project.title}}</a></div>
+<!-- <a href="{% url 'show_post', the_post.slug %}">{{ the_post.title }}</a> -->
+<img src="{{project.image.url}}" height="200" />
+{%endfor%}
