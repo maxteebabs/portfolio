@@ -10,6 +10,7 @@ django-smtp-ssl = "*"
 django = "*"
 psycopg2 = "*"
 pillow = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
