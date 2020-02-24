@@ -86,11 +86,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfoliodb',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5433'
+        # 'NAME': 'portfoliodb',
+        # 'USER': 'postgres',
+        # 'PASSWORD': '',
+        # 'HOST': 'localhost',
+        # 'PORT': '5433'
     },
     'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
