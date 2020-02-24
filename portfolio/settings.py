@@ -31,7 +31,8 @@ SECRET_KEY = 'o4vr38&^7f(3l($*d+++myu15^o_!-6kck1q)3!94c*u15c($o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'maxtee-portfolio.herokuapp.com']
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'maxtee-portfolio.herokuapp.com']
 
 
 # Application definition
