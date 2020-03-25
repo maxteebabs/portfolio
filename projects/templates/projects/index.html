@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 {% load static %}
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,97 +9,619 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
     <title>Famurewa Taiwo</title>
 </head>
-
-<body>
-    
-    <nav class="navbar sticky-top  navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav navbar-right ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-intro"  onClick="scrollToSection('intro')">
+                <h1 class="color">Famurewa <br />Taiwo</h1>
+                <span class="color-1">Full Stack Developer</span>
         </div>
+        <ul class="nav nav-pills flex-column sidebar">
+            <li class="nav-item" onClick="scrollToSection('about')">
+                <a class="nav-link" href="javascript:void(0);">
+                    <i class="fa fa-user"></i> About</a>
+            </li>
+            <li class="nav-item" onClick="scrollToSection('experience')">
+                <a class="nav-link" href="javascript:void(0);">
+                    <i class="fa fa-chart-line"></i> Experience</a>
+            </li>
+            <li class="nav-item" onClick="scrollToSection('projects')">
+                <a class="nav-link" href="javascript:void(0);">
+                    <i class="fa fa-briefcase"></i> Projects</a>
+            </li>
+            <li class="nav-item" onClick="scrollToSection('skills')">
+                <a class="nav-link" href="javascript:void(0);">
+                    <i class="fa fa-tasks"></i> Skills</a>
+            </li>
+            <li class="nav-item" onClick="scrollToSection('education')">
+                <a class="nav-link" href="javascript:void(0);">
+                    <i class="fa fa-university"></i> Education</a>
+            </li>
+            <li class="nav-item" onClick="scrollToSection('contact')">
+                <a class="nav-link" href="javascript:void(0);">
+                    <i class="fa fa-address-book"></i> Contact</a>
+            </li>
+        </ul>
     </nav>
-
-    <div class="jumbotron section-1">
-        <div class="jumbo-bg-img"></div>
-        <div class="inner-wrapper">
-            <img class="img-thumbnail mx-auto d-block mt-5" width="100" src="{% static 'profilepix.jpeg' %}" />
-            <h1 class="text-center mt-3 text-white">Famurewa Taiwo</h1>
-        </div>
-    </div>
-
-    <div class="container profile-section">
+    <div id="main">
         {% if messages %}
         {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+            {{ message }}</div>
         {% endfor %}
         {% endif %}
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <p class="text-center">I am a software engineer with over 6years
-                     experience <br /> in the industry. As a full stack developer, 
-                     I am passionate in not just delivering <br />   but architecting enterprise solutions.<br />
-                     I specialize in building web and mobile apps and
-                     I currently reside in Lagos, Nigeria. </p>
-            <span class="social">
-                <ul>
-                    <li><a href="https://twitter.com/taiwomix" target="_blank"><img src="{% static 'twitter.png' %}" alt="twitter" /></a></li>
-                    <li><a href="https://www.linkedin.com/in/famurewataiwo/" target="_blank"><img src="{% static 'linkedin.png' %}" alt="linkedin" /></a href="https://www.linkedin.com/in/famurewataiwo/" target="_blank"></li>
-                    <li><a href="https://github.com/maxteebabs/" target="_blank"><img src="{% static 'github.png' %}" alt="github" /></a href="https://www.linkedin.com/in/famurewataiwo/" target="_blank"></li>
-                </ul>
-            </span>
+        <div id="intro" class="full-height">
+            <div class="row">
+                <div class="col-12">
+                    <a href="javascript:void(0);" class="nav-btn fas fa-user" onclick="openNav()">
+                    </a>
+                    <div class="overlay">
+                        <h2>Solving real life problem <br /> gives me so much joy</h2>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="contanter-fluid contact-section">
-        <div class="row">
-            <div class="offset-md-4 col-md-4">
-                <form method="post" action={% url 'contact' %}>
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="name">Name<span class="error">*</span></label>
-                        <input type="text" class="form-control" id="name" aria-describedby="name"
-                            placeholder="Enter name" name="name" required />
+        <div id="about">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">About</div>
+                    <div class="content">   
+                        <p>I am a highly resourceful, innovative, and competent software engineer
+                             experienced in developing applications and solutions
+                        for a wide range of clients and having the enthusiasm and ambition to
+                         complete projects to the highest standard.</p>
+                         <p>My unique selling point lies in my ability to solve
+                              complex problems, develop algorithms and meet deadlines.</p>
+                        <span class="social">
+                            <ul>
+                                <li><a href="https://twitter.com/taiwomix" target="_blank"><img src="{% static 'twitter.png' %}"
+                                            alt="twitter" /></a></li>
+                                <li><a href="https://www.linkedin.com/in/famurewataiwo/" target="_blank"><img src="{% static 'linkedin.png' %}"
+                                            alt="linkedin" /></a href="https://www.linkedin.com/in/famurewataiwo/" target="_blank"></li>
+                                <li><a href="https://github.com/maxteebabs/" target="_blank"><img src="{% static 'github.png' %}"
+                                            alt="github" /></a href="https://www.linkedin.com/in/famurewataiwo/" target="_blank"></li>
+                            </ul>
+                        </span>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                            placeholder="Enter email" name="email" required />
+                </div>
+            </div>
+        </div>
+        <div id="experience">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">Work Experience</div>
+                        <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-md-8 col-12">
+                                        <h5>Wakanow, Lagos</h5>
+                                    </div>
+                                    <div class="ml-auto col-md-4 col-12">
+                                        <span>Software Engineer</span><br />
+                                        <span class="date"><em>September 2017 - till Date</em></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul>
+                                            <li>Write and implement clean, secure, well-documented and bug-free code to 
+                                                support the front and back-end functionality of
+                                            internal systems.</li>
+                                            <li>Implement, upgrade and make improvements to Content Management Systems 
+                                                and Customer Relationship Management portals to ensure they are used
+                                                    efficiently and optimally throughout the organization.</li>
+                                            <li>Design and implement new web page templates, layouts and widgets and 
+                                                other assets as needed for desktop and mobile
+                                            devices.</li>
+                                            <li>Improve and maintain the integration of Wakanow’s internal systems 
+                                                and web portal.</li>
+                                            <li>Work closely with business analyst and product owners to deliver 
+                                                solutions that are innovative, functional and most
+                                            importantly meet customer requirements</li>
+                                            <li>Work with Quality Assurance team in unit level testing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-md-8 col-12">
+                                        <h5>Proxynet Communications Ikeja, Lagos</h5>
+                                    </div>
+                                    <div class="ml-auto col-md-4 col-12">
+                                        <span>Software Engineer</span><br />
+                                        <span class="date"><em>May 2016 – September 2017.</em></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul>
+                                            <li>Designing RESTful backend microservices and developing them 
+                                                using Node.js and Express</li>
+                                            <li>Maintaining and upgrading of existing web solutions</li>
+                                            <li>Successfully built an Hotel Management application using 
+                                                Nodejs, MongoDB and Angular.</li>
+                                            <li>Prepare technical document on the proposed solution to describe
+                                                    how the solution will be implemented.</li>
+                                            <li>Writing APIs for android development</li>
+                                            <li>Product research, conceptualization and development</li>
+                                            <li>Design and implementation of mobile interface
+                                            using Android Studio
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-md-8 col-12">
+                                        <h5>Telvida Int’l Systems, Victoria Island, Lagos</h5>
+                                    </div>
+                                    <div class="ml-auto col-md-4 col-12">
+                                        <span>Software Engineer</span><br />
+                                        <span class="date"><em>July 2015 – April 2016.</em></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul>
+                                            <li>Interacting with APIs using SOAP and Json.</li>
+                                            <li>Creating restful applications for users</li>
+                                            <li>Successfully built a call management solution 
+                                                integrated with
+                                            CRM portal deployed for use in America
+                                            </li>
+                                            <li>Payment Integration with Stripe</li>
+                                            <li>Writing media queries for responsive web solutions</li>
+                                            <li>Testing and validating work produced as part of the 
+                                                development process.</li>
+                                            <li>Back end development and maintenance of websites 
+                                                using PHP and MySQL.
+                                            </li>
+                                            <li>Documenting features, technical specifications & 
+                                                infrastructure requirements.</li>
+                                            <li>Analyzing user requirements</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-md-8 col-12">
+                                        <h5>Mcboris Technology Broad Street, Lagos</h5>
+                                    </div>
+                                    <div class="ml-auto col-md-4 col-12">
+                                        <span>Software Engineer</span><br />
+                                        <span class="date"><em>July 2012-June 2014.</em></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <ul>
+                                            <li>Design of a database driven job website</li>
+                                            <li>Verbal and written communication with customers to 
+                                                resolve new and outstanding issues</li>
+                                            <li>Research, design and implement best practice solutions
+                                                    to new problems
+                                            </li>
+                                            <li>Worked on a wide range of websites and web applications</li>
+                                            <li>Troubleshooting technical problems and implementing solutions</li>
+                                            <li>Communicated technical issues to non-technical management</li>
+                                            <li>Design and implementation of a school management system
+                                            </li>
+                                            <li>SEO and Social Media Integration</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="projects">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">Projects</div>
+                    <div class="wrapper mb-10">
+                        <div class="row">
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Medflit</h5>
+                                        <p>A telemedicine application that allows patients
+                                            to speak with doctors or chat them up to get prescriptions.
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="http://medflit.com" target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a>
+                                        <!-- <a href="https://github.com/maxteebabs"
+                                             target="_blank"><i class="fab fa-github"></i> Source Code</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Proskool</h5>
+                                        <p>A School Mangagement Solution.
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="http://doyensschool.proskool.net/" target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a>
+                                        <!-- <a href="https://github.com/maxteebabs"
+                                            target="_blank"><i class="fab fa-github"></i> Source Code</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Blockchain API</h5>
+                                        <p>This helps users to transact in bitcoin currency.
+                                            Users can also check balance on wallet, create 
+                                            a wallet and so much more using this api 
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <!-- <a href="http://medflit.com" target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a> -->
+                                        <a href="https://github.com/maxteebabs/Laravel-blockchain-api"
+                                            target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">ChatBot</h5>
+                                        <p>A chatbot application built with google dialog flow for flights
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="https://github.com/maxteebabs/ChatBot" 
+                                            target="_blank"><i class="fab fa-github"></i>
+                                            Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Researchitlive</h5>
+                                        <p>A dynamic web application built with laravel
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="http://researchitlive.com" target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Kickandfollow.com</h5>
+                                        <p>A custom built CMS application for football blogging
+                                            scouts e.t.c
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="http://kickandfollow.com" target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">InkHood App</h5>
+                                        <p>A bookstore mobile app built with react-native and
+                                            django as backend. It allows authors write stories 
+                                            and have it read by the public
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40taiwobabs/inkhood_app-4822d482ce53413c8970478f4c0a1e95-signed.aab" target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Restaurant Hub</h5>
+                                        <p>A mobile app that allows you to search 
+                                            the nearest restaurant.
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40taiwobabs/ioshub-efa6530eed864e7bae39a9cf225abcf8-signed.apk"
+                                            target="_blank">
+                                            <i class="fa fa-globe"></i> View Online</a>
+                                        <a href="https://github.com/maxteebabs/restauranthub" 
+                                            target="_blank"><i class="fab fa-github"></i>
+                                            Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">POS Inventory app</h5>
+                                        <p>This is a point of sale application which 
+                                            can be used in supermarkets, restaurants e.t.c
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="https://github.com/maxteebabs/pos-inventory-app"
+                                         target="_blank"><i class="fab fa-github"></i>
+                                            Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-12">
+                                <div class="project-card">
+                                    <div class="p-20 project-card-content">
+                                        <h5 class="color-1">Hotel Management Solution</h5>
+                                        <p>This gives staffs the ability to reserve rooms, 
+                                            check-in, check-out and do a lot more
+                                        </p>
+                                    </div>
+                                    <div class="c-footer">
+                                        <a href="https://github.com/maxteebabs/hotelMgt-App" target="_blank"><i class="fab fa-github"></i>
+                                            Source Code</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="skills">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">Skills</div>
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-12">
+                                        <h5 class="color-1">HTML/CSS</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/html5.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">HTML5</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/css3.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">CSS</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/sass.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-40">SASS</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/bootstrap.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">BootStrap</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/materialize.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">Materialize</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-12">
+                                        <h5 class="color-1">Javascript</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/javascript.png' %}" width="100%" height="auto" />
+                                        <div class="text-center ">javascript</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/react.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">React</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/jquery.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">JQuery</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/vuejs.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">Vuejs</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/angular.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">Angular</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/nodejs.png' %}" width="100%" height="auto" />
+                                        <div class="text-center mt-15">Nodejs</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-12">
+                                        <h5 class="color-1">Backend</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 col-6">
+                                        <img src="{% static 'images/php-logo-512.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">PHP</div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <img src="{% static 'images/python.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">Python</div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <img src="{% static 'images/postgresql.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">PostgreSQL</div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <img src="{% static 'images/mongodb.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">MongoDB</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-head">
+                                <div class="row card-title">
+                                    <div class="col-12">
+                                        <h5 class="color-1">Others</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/gulp.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">Gulp</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/webpack.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">Webpack</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/github.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">Github</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/linux.jfif' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">Linux</div>
+                                    </div>
+                                    <div class="col-md-2 col-6">
+                                        <img src="{% static 'images/aws.png' %}" width="auto" height="100px" />
+                                        <div class="text-center mt-15">AWS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="education">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">Education</div>
+                    <div class="wrapper mb-10">
+                        <div class="row">
+                            <div class="col-md-6 col-12">
+                                <div class="sub-card">
+                                    <div class="card-head">
+                                        <h5 class="color-1">Obafemi Awolowo University</h5>
+                                        <p>PGD Electronics/Telecommuncation Engineering</p>
+                                        <p><em>- 2014</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <div class="sub-card">
+                                    <div class="card-head">
+                                        <h5 class="color-1">Ekiti State Unviersity</h5>
+                                        <p>B.Sc. (HONS) Physics</p>
+                                        <p><em>- 2004</em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">Contact</div>
+                    <div class="wrapper">
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <div class="sub-card">
+                                    <span class="mail-title color-1">Do you have a question, a offer or want to talk to 
+                                        me about a project collaboration?</span>
+                                    <form method="post" action={% url 'contact' %}>
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="name">Name<span class="error">*</span></label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter name"
+                                                name="name" required />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+                                                name="email" required />
+                                        </div>
+                                
+                                        <div class="form-group">
+                                            <label for="message">Your Message</label>
+                                            <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea class="form-control" name="message" id="message" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send</button>
-                </form>
-            </div>
-        </div>
     </div>
-    
+    <script type="text/javascript">
+        var sidebar = document.getElementById("sidebar");
+        var main = document.getElementById("main");
+        function openNav() {
+            sidebar.style.width = "250px";
+            // main.style.marginLeft = "250px";
+        }
+        function closeNav() {
+            sidebar.style.width = "0";
+        }
+        function scrollToDiv() {
+               $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 300, function () {
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{% static 'js/jquery.min.js'%}"></script>
-    <script src="{% static 'js/popper.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+                // when done, add hash to url
+                // (default click behaviour)
+                window.location.hash = hash;
+            });
+        }
+        function scrollToSection(elem) {
+            document.getElementById(elem).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // window.addEventListener('load', function () {
+        //     sidebar.addEventListener("click", function () {
+        //         closeNav();
+        //     }, false);
+        // });
+    </script>
 </body>
-
 </html>

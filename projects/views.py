@@ -23,7 +23,9 @@ def contact(request):
                 status = send_mail(
                     'Porfolio Platform', body, email,
                     ["maxteetechnologies@gmail.com"],
-                    fail_silently=False, html_message=body  
+                    fail_silently=False, html_message=body,  
+                    auth_user="muyiwa32145@gmail.com",
+                    auth_password="muyiwa@321"
                 )
                 if(status):
                     messages.success(request, 'Email successfully saved.')
